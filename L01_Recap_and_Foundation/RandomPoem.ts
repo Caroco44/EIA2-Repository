@@ -5,23 +5,22 @@ namespace RandomPoem {
   let object: string[] = ["die Natur", "den Wald", "den Baum", "die Höhle"];
 
 
-  for (let i = 3; i >= 0; i--) {
-    getVerse(subject, predicate, object);
-  }
+  for (let i = subject.length; i >= 1; i--) {
+    let poem = getVerse(subject, predicate, object);
+    console.log(poem);
+    }
 
 
   function getVerse(_subject: string[], _predicate: string[], _object: string[]) {
+    let verse: string = "";
 
-    let randomNumber: number = Math.floor(Math.random() * 4);
-    // console.log(randomNumber);
+    let subjectVariable: number = Math.floor(Math.random() * _subject.length);verse += _subject.splice(subjectVariable, 1) [0] + " ";
 
-    let spliceSubject: string[] = _subject.splice(randomNumber, 1);
-    let splicePredicate: string[] = _predicate.splice(randomNumber, 1);
-    let spliceObject: string[] = _object.splice(randomNumber, 1);
+    let predicateVariable: number = Math.floor(Math.random() * _predicate.length);verse += _subject.splice(predicateVariable, 1) [0] + " ";
 
-    let verse: string = spliceSubject[0] + " " + splicePredicate[0] + " " + spliceObject[0];
-    console.log(verse);
-    return verse;
+    let objectVariable: number = Math.floor(Math.random() * _object.length);verse += _subject.splice(objectVariable, 1) [0] + " ";
+
+    return verse
   }
 
 }
