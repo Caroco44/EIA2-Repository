@@ -1,0 +1,55 @@
+html,
+body {
+  height: 100%;
+  margin: 0 45px;
+}
+
+body {
+  text-align: center;
+}
+
+h1 {
+  font-family: sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+#bigDiv {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+}
+
+#div0 {
+  background-color: lightblue;
+  height: 450px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#div1 {
+  background-color: lightpink;
+  height: 450px;
+}
+
+button {
+  background-color: aliceblue;
+  border-radius: 4cm;
+  padding: 3%;
+}
+
+span {
+  font-size: 15px;
+  font-family: sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  border: thin solid black;
+  width: 150px;
+  height: 100px;
+}

@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../EIA2 - Vorlesung"
+		},
+		{
+			"path": "../../../../../Sonstiges/HTML-CSS-COURSE"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "EIA2-Repository"
+	}
+}
