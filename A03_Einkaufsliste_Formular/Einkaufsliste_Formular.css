@@ -42,7 +42,7 @@ button{
   border-radius: 5px;
   border: 2px solid rgb(255, 113, 70);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
-  box-shadow: 0px 5px 10px 2px rgb(85, 36, 7);
+  box-shadow: 0px 3px 8px 1px rgb(85, 36, 7);
 }
 
 .purchasedButton {
@@ -55,4 +55,6 @@ button{
 
 #newEntryButton {
   background-color: rgb(219, 85, 61);
+  border-radius: 55px;
+  font-size: 15px;
 }
