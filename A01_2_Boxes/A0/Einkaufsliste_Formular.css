@@ -2,7 +2,6 @@ html,
 body {
   height: 100%;
   margin: 0 8px;
-
 }
 
 #bigDiv {
@@ -16,6 +15,11 @@ body {
 .Entry {
   background-color: rgb(219, 255, 254);
   position: relative;
+}
+
+button{
+  border-radius: 5px;
+  border: 2px solid rgb(73, 73, 73);
 }
 
 .purchasedButton {
