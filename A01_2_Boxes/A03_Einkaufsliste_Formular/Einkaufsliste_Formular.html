@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Einkaufsliste Formular</title>
+  <link rel="stylesheet" href="Einkaufsliste_Formular.css">
+  <script src="Einkaufsliste_Formular.js"></script>
+</head>
+
+<body>
+
+  <h1>Your Shopping List</h1>
+  <div id="bigDiv">
+    
+    <div class="Entry">
+      <fieldset>
+        <legend>
+          <input type="text" placeholder="Product">
+        </legend>
+        <input type="checkbox" name="Product1" id="product1" value="Product1">
+  
+        <button class="purchasedButton">Purchased</button>
+      </fieldset>
+  
+      <fieldset>
+        <p>Number, Comment, Date</p>
+        <input type="number" name="Stepper" step="1" min="0" max="100" value="0" />
+  
+        <input type="text" placeholder="Kommentar">
+        <input disabled type="text" placeholder="Datum">
+        <button class="deleteButton">Delete Entry</button>
+      </fieldset>
+    </div>
+    
+    <div class="Entry">
+      <fieldset>
+        <legend>
+          <input type="text" placeholder="Product">
+        </legend>
+        <input type="checkbox" name="Product2" id="product2" value="Product2">
+  
+        <button class="purchasedButton">Purchased</button>
+      </fieldset>
+  
+      <fieldset>
+        <p>Number, Comment, Date</p>
+        <input type="number" name="Stepper" step="1" min="0" max="100" value="0" />
+  
+        <input type="text" placeholder="Kommentar">
+        <input disabled type="text" placeholder="Datum">
+        <button class="deleteButton">Delete Entry</button>
+      </fieldset>
+    </div>
+
+    <button id="newEntryButton">New Entry</button>
+  </div>
+
+</body>
+
+</html>
