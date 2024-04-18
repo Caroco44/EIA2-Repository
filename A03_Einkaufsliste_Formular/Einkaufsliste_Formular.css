@@ -1,0 +1,58 @@
+html,
+body {
+  height: 100%;
+  margin: 0 8px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+}
+
+h1 {
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+#bigDiv {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 40px;
+}
+
+input {
+  border: 2px solid rgb(78, 18, 0);
+  border-radius: 5px;
+  padding: 3px;
+  margin: 2px;
+}
+
+input::placeholder {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+}
+
+.Entry {
+  background-color: rgb(238, 126, 35);
+  position: relative;
+  text-align: center;
+  border-radius: 55px;
+  font-size: 13px;
+  padding: 10px;
+}
+
+button{
+  border-radius: 5px;
+  border: 2px solid rgb(255, 113, 70);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+  box-shadow: 0px 5px 10px 2px rgb(85, 36, 7);
+}
+
+.purchasedButton {
+  background-color: rgb(219, 85, 61);
+}
+
+.deleteButton {
+  background-color: rgb(219, 85, 61);
+}
+
+#newEntryButton {
+  background-color: rgb(219, 85, 61);
+}
