@@ -67,13 +67,13 @@ namespace Einkaufsliste {
 
     let comment: HTMLInputElement = document.createElement("input");
     comment.type = "text";
-    comment.placeholder = "Kommentar";
+    comment.placeholder = "Comment";
     comment.value = _entry.comment;
     group.appendChild(comment);
 
     let date: HTMLInputElement = document.createElement("input");
     date.type = "text";
-    date.placeholder = "Datum";
+    date.placeholder = "Date";
     date.value = _entry.date;
     group.appendChild(date);
 
