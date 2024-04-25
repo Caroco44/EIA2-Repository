@@ -1,4 +1,13 @@
 namespace Einkaufsliste {
+  export interface Product {
+    item: string;
+    checked: boolean;
+    purchased: string;
+    comment: string;
+    date: string;
+    amount: number;
+    deleteBtn: string
+  }
 
   // Install listeners on buttons
   let purchasedButton = document.querySelectorAll(".purchasedButton");
@@ -22,37 +31,92 @@ namespace Einkaufsliste {
   });
 
 
-  // window.addEventListener("load", handleLoad);
 
-  // function handleLoad(_event: Event): void {
-  //   console.log("Start");
-  //   let divs: NodeListOf<HTMLDivElement> = document.querySelectorAll("div.input");
 
-  //   // Install listeners on divs
-  //   for (let i: number = 0; i < divs.length; i++) {
-  //     let div: HTMLDivElement = divs[i];
-  //     div.addEventListener("change", handleEvent);
-  //     div.addEventListener("input", handleEvent);
-  //   }
-  // }
+  export let data = [
+    { item: "Milk", checked: true, purchased: "clicked", comment: "cow milk", date: "25.04.2024", amount: 2, deleteBtn: "clicked" },
+    { item: "Milk", checked: true, purchased: "clicked", comment: "cow milk", date: "25.04.2024", amount: 2, deleteBtn: "clicked" },
+  ]
 
-  // // Function handleEvent
-  // function handleEvent(_event: Event): void {
-  //   let target: HTMLInputElement = <HTMLInputElement>_event.target;
-  //   console.log();
-  //   if (_event.type == "change")
-  //     console.warn("Change: " + target.name + " = " + target.value, _event);
-  //   else
-  //     console.log("Input: " + target.name + " = " + target.value, _event);
 
-  //   if (target.type == "checkbox")
-  //     console.log("Checked: " + target.name + " = " + target.checked);
+  for (let entry of data) {
+    createNew(entry)
+  }
 
-  //   if (target.name == "Stepper") {
-  //     let meter: HTMLMeterElement = <HTMLMeterElement>document.querySelector("meter");
-  //     meter.value = parseFloat(target.value);
-  //   }
-  // }
+  function createNew(_entry: Product): HTMLElement {
+    console.log(_entry);
+
+    let group: HTMLDivElement = document.createElement("div");
+
+    let item: HTMLInputElement = document.createElement("input");
+    item.type = "text";
+    item.placeholder = "Product";
+    item.value = _entry.item;
+    group.appendChild(item);
+
+    let checked: HTMLInputElement = document.createElement("input");
+    checked.type = "checkbox";
+    checked.name = _entry.item;
+    checked.className = "checkboxClass"
+    checked.checked = _entry.checked;
+    group.appendChild(checked);
+
+    let purchased: HTMLButtonElement = document.createElement("button");
+    purchased.className = "purchasedButton";
+    purchased.type = "button";
+    purchased.textContent = "Purchased";
+    group.appendChild(purchased);
+
+    let comment: HTMLInputElement = document.createElement("input");
+    comment.type = "text";
+    comment.placeholder = "Kommentar";
+    comment.value = _entry.comment;
+    group.appendChild(comment);
+
+    let date: HTMLInputElement = document.createElement("input");
+    date.type = "text";
+    date.placeholder = "Datum";
+    date.value = _entry.date;
+    group.appendChild(date);
+
+    let amount: HTMLInputElement = document.createElement("input");
+    amount.type = "number";
+    amount.name = "Stepper";
+    amount.step = "1";
+    amount.min = "0";
+    amount.max = "100";
+    amount.value = _entry.amount.toString();
+    group.appendChild(amount);
+
+    let deleteBtn: HTMLButtonElement = document.createElement("button");
+    deleteBtn.className = "deleteButton";
+    deleteBtn.type = "button";
+    deleteBtn.textContent = "Delete";
+    group.appendChild(deleteBtn);
+
+    document.body.appendChild(group);
+
+    return group;
+}
+
+
+    // let group: HTMLDivElement = document.createElement("div");
+    // for (let item of _items) {
+    //   let checkbox: HTMLInputElement = document.createElement("input");
+    //   checkbox.type = "checkbox";
+    //   checkbox.setAttribute("price", item.price.toFixed(2));
+    //   checkbox.value = item.name;
+    //   checkbox.name = _category;
+    //   checkbox.id = item.name;
+
+    //   let label: HTMLLabelElement = document.createElement("label");
+    //   label.textContent = item.name;
+    //   label.htmlFor = item.name;
+
+    //   group.appendChild(checkbox);
+    //   group.appendChild(label);
+    // }
+    // return group;
 
 
 }
