@@ -31,19 +31,17 @@ namespace Einkaufsliste {
   });
 
 
-
-
-  export let data = [
+  let data = [
     { item: "Milk", checked: true, purchased: "clicked", comment: "cow milk", date: "25.04.2024", amount: 2, deleteBtn: "clicked" },
-    { item: "Milk", checked: true, purchased: "clicked", comment: "cow milk", date: "25.04.2024", amount: 2, deleteBtn: "clicked" },
+    { item: "Bread", checked: true, purchased: "clicked", comment: "white", date: "25.04.2024", amount: 2, deleteBtn: "clicked" },
   ]
 
 
   for (let entry of data) {
-    createNew(entry)
+    createNewEntry(entry)
   }
 
-  function createNew(_entry: Product): HTMLElement {
+  function createNewEntry(_entry: Product): HTMLElement {
     console.log(_entry);
 
     let group: HTMLDivElement = document.createElement("div");
@@ -98,25 +96,5 @@ namespace Einkaufsliste {
 
     return group;
 }
-
-
-    // let group: HTMLDivElement = document.createElement("div");
-    // for (let item of _items) {
-    //   let checkbox: HTMLInputElement = document.createElement("input");
-    //   checkbox.type = "checkbox";
-    //   checkbox.setAttribute("price", item.price.toFixed(2));
-    //   checkbox.value = item.name;
-    //   checkbox.name = _category;
-    //   checkbox.id = item.name;
-
-    //   let label: HTMLLabelElement = document.createElement("label");
-    //   label.textContent = item.name;
-    //   label.htmlFor = item.name;
-
-    //   group.appendChild(checkbox);
-    //   group.appendChild(label);
-    // }
-    // return group;
-
 
 }
