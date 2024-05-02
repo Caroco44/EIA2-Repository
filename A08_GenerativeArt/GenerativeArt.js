@@ -32,7 +32,7 @@ var A08_GenerativeArt;
     }
     function drawRhombus(_position) {
         console.log("Rhombus", _position);
-        let nParticles = 6;
+        let nParticles = 3;
         let gradient = crc2.createLinearGradient(100, 100, 120, 150);
         gradient.addColorStop(0, "rgb(11, 203, 139)");
         gradient.addColorStop(1, "rgb(41, 148, 231)");
@@ -44,10 +44,10 @@ var A08_GenerativeArt;
             let y = Math.random() * _position.y;
             crc2.translate(x, y);
             crc2.beginPath();
-            crc2.moveTo(100, 100);
-            crc2.lineTo(120, 150);
-            crc2.lineTo(100, 190);
-            crc2.lineTo(80, 150);
+            crc2.moveTo(98, 98);
+            crc2.lineTo(118, 145);
+            crc2.lineTo(98, 185);
+            crc2.lineTo(78, 145);
             crc2.closePath();
             crc2.fill();
             crc2.restore();
@@ -104,57 +104,5 @@ var A08_GenerativeArt;
         }
         crc2.restore();
     }
-    // function drawSun(_position: Vector): void {
-    //   console.log("Sun", _position);
-    //   let r1: number = 30;
-    //   let r2: number = 150;
-    //   let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, r1, 0, 0, r2);
-    //   gradient.addColorStop(0, "HSLA(60, 100%, 90%, 1)");
-    //   gradient.addColorStop(1, "HSLA(60, 100%, 50%, 0)");
-    //   crc2.save();
-    //   crc2.translate(_position.x, _position.y);
-    //   crc2.fillStyle = gradient;
-    //   crc2.arc(0, 0, r2, 0, 2 * Math.PI);
-    //   crc2.fill();
-    //   crc2.restore();
-    // }
-    // function drawStreet(_position: Vector, _widthBack: number, _widthFront: number): void {
-    //   console.log("Street");
-    //   crc2.beginPath();
-    //   crc2.moveTo(_position.x + _widthBack / 2, _position.y);
-    //   crc2.lineTo(crc2.canvas.width / 2 + _widthFront / 2, crc2.canvas.height);
-    //   crc2.lineTo(crc2.canvas.width / 2 - _widthFront / 2, crc2.canvas.height);
-    //   crc2.lineTo(_position.x - _widthBack / 2, _position.y);
-    //   crc2.closePath();
-    //   let gradient: CanvasGradient = crc2.createLinearGradient(0, _position.y, 0, crc2.canvas.height);
-    //   gradient.addColorStop(0, "darkgrey");
-    //   gradient.addColorStop(0.6, "black");
-    //   crc2.fillStyle = gradient;
-    //   crc2.fill();
-    // }
-    // function drawMountains(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
-    //   console.log("Mountains");
-    //   let stepMin: number = 50;
-    //   let stepMax: number = 150;
-    //   let x: number = 0;
-    //   crc2.save();
-    //   crc2.translate(_position.x, _position.y);
-    //   crc2.beginPath();
-    //   crc2.moveTo(0, 0);
-    //   crc2.lineTo(0, - _max);
-    //   do {
-    //     x += stepMin + Math.random() * (stepMax - stepMin);
-    //     let y: number = - _min - Math.random() * (_max - _min);
-    //     crc2.lineTo(x, y);
-    //   } while (x < crc2.canvas.width);
-    //   crc2.lineTo(x, 0);
-    //   crc2.closePath();
-    //   let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, - _max);
-    //   gradient.addColorStop(0, _colorLow);
-    //   gradient.addColorStop(0.7, _colorHigh);
-    //   crc2.fillStyle = gradient;
-    //   crc2.fill();
-    //   crc2.restore();
-    // }
 })(A08_GenerativeArt || (A08_GenerativeArt = {}));
 //# sourceMappingURL=GenerativeArt.js.map
