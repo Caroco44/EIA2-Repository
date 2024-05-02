@@ -13,6 +13,7 @@ var A08_GenerativeArt;
         drawRhombus({ x: canvas.width, y: canvas.height });
         drawCircles({ x: canvas.width, y: canvas.height });
         drawLights({ x: canvas.width, y: canvas.height });
+        drawDonut({ x: canvas.width, y: canvas.height });
         // drawSun({ x: 100, y: 75 });
         // drawStreet({ x: crc2.canvas.width / 2, y: horizon }, 100, 600);
         // drawMountains({ x: 0, y: horizon }, 75, 200, "grey", "white");
@@ -34,8 +35,8 @@ var A08_GenerativeArt;
         console.log("Rhombus", _position);
         let nParticles = 3;
         let gradient = crc2.createLinearGradient(100, 100, 120, 150);
-        gradient.addColorStop(0, "rgb(11, 203, 139)");
-        gradient.addColorStop(1, "rgb(41, 148, 231)");
+        gradient.addColorStop(0, "rgba(11, 203, 139, 0.5)");
+        gradient.addColorStop(1, "rgba(41, 148, 231, 0.5)");
         crc2.fillStyle = gradient;
         crc2.save();
         for (let drawn = 0; drawn < nParticles; drawn++) {
@@ -99,6 +100,27 @@ var A08_GenerativeArt;
                 gradient.addColorStop(1, "rgb(185, 7, 173)"); // pink
             }
             crc2.fillStyle = gradient;
+            crc2.fill(particle);
+            crc2.restore();
+        }
+        crc2.restore();
+    }
+    function drawDonut(_position) {
+        console.log("Circles", _position);
+        let nParticles = 3;
+        let radiusParticle = 80;
+        let particle = new Path2D();
+        let gradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
+        gradient.addColorStop(0.3, "transparent");
+        gradient.addColorStop(1, "purple");
+        crc2.save();
+        crc2.fillStyle = gradient;
+        for (let drawn = 0; drawn < nParticles; drawn++) {
+            crc2.save();
+            let x = Math.random() * _position.x;
+            let y = Math.random() * _position.y;
+            crc2.translate(x, y);
             crc2.fill(particle);
             crc2.restore();
         }
