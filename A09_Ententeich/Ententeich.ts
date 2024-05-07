@@ -23,8 +23,15 @@ namespace L08_Canvas_Alley {
     drawSun({ x: 100, y: 75 });
     drawCloud({ x: 500, y: 125 }, { x: 250, y: 75 });
     // drawStreet({ x: crc2.canvas.width / 2, y: horizon }, 100, 600);
-    drawMountains({ x: 0, y: horizon }, 75, 200, "rgb(215, 27, 222)", "rgb(255, 198, 246)");
-    drawMountains({ x: 0, y: horizon }, 50, 150, "rgb(218, 15, 225)", "rgb(255, 239, 255)");
+    drawMountains({ x: 0, y: horizon }, 75, 200, "rgb(193, 12, 139)", "white");
+    drawMountains({ x: 0, y: horizon }, 50, 150, "rgb(149, 20, 154)", "rgb(255, 236, 255)");
+    drawTree();
+    drawTreeBlossom();
+    drawLake();
+    drawReed();
+    drawHouse();
+    drawBlossom();
+    drawDuck();
   }
 
   function drawBackground(): void {
@@ -33,7 +40,7 @@ namespace L08_Canvas_Alley {
     let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
     gradient.addColorStop(0, "purple");
     gradient.addColorStop(0.3, "rgb(215, 27, 222)");
-    gradient.addColorStop(0.7, "rgb(16, 138, 110)");
+    gradient.addColorStop(0.75, "rgb(16, 138, 110)");
     gradient.addColorStop(1, "rgb(11, 203, 139)");
 
     crc2.fillStyle = gradient;
@@ -48,7 +55,7 @@ namespace L08_Canvas_Alley {
     let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, r1, 0, 0, r2);
 
     gradient.addColorStop(0, "rgba(238, 182, 188, 0.6)");
-    gradient.addColorStop(1, "rgba(250, 118, 131, 0)");
+    gradient.addColorStop(1, "rgba(223, 131, 226, 0)");
 
     crc2.save();
     crc2.translate(_position.x, _position.y);
@@ -128,12 +135,41 @@ namespace L08_Canvas_Alley {
 
     let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, - _max);
     gradient.addColorStop(0, _colorLow);
-    gradient.addColorStop(0.7, _colorHigh);
+    gradient.addColorStop(0.9, _colorHigh);
 
     crc2.fillStyle = gradient;
     crc2.fill();
 
     crc2.restore();
+  }
+
+
+  function drawTree() {
+    console.log("Baum malen")
+  }
+
+  function drawTreeBlossom () {
+    console.log("Baumblüten malen")
+  }
+
+  function drawLake () {
+    console.log("Baumblüten malen")
+  }
+
+  function drawReed() {
+    console.log("Schilfrohr malen")
+  }
+
+  function drawHouse() {
+    console.log("Haus malen")
+  }
+
+  function drawBlossom() {
+    console.log("Blumen malen")
+  }
+
+  function drawDuck() {
+    console.log("Ente malen")
   }
 
 }
