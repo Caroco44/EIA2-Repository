@@ -1,8 +1,8 @@
-namespace L09_Ententeich {
-  export class TreeBlossom {
-    position: Vector;
-    color: string;
-    size: number;
+// namespace L09_Ententeich {
+//   export class TreeBlossom {
+//     position: Vector;
+//     color: string;
+//     size: number;
 
     // constructor(_size: number) {
     //   console.log("Asteroid constructor");
@@ -23,5 +23,5 @@ namespace L09_Ententeich {
     //   crc2.stroke(asteroidPaths[this.type]);
     //   crc2.restore();
     // }
-  }
-}
+//   }
+// }
