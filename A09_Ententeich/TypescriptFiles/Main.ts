@@ -1,4 +1,4 @@
-namespace L08_Canvas_Alley {
+namespace L09_Ententeich {
   interface Vector {
     x: number;
     y: number;
