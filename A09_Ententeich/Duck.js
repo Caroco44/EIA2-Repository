@@ -2,7 +2,7 @@
 var L09_Ententeich;
 (function (L09_Ententeich) {
     class Duck {
-        position;
+        // position: Vector;
         direction;
         type;
         color;

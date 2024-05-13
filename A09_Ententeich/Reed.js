@@ -2,7 +2,7 @@
 var L09_Ententeich;
 (function (L09_Ententeich) {
     class Reed {
-        position;
+        // position: Vector;
         size;
     }
     L09_Ententeich.Reed = Reed;

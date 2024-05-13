@@ -2,7 +2,7 @@
 var L09_Ententeich;
 (function (L09_Ententeich) {
     class Crumbs {
-        position;
+        // position: Vector;
         size;
     }
     L09_Ententeich.Crumbs = Crumbs;

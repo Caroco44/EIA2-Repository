@@ -1,6 +1,6 @@
 namespace L09_Ententeich {
   export class Crumbs {
-    position: Vector;
+    // position: Vector;
     size: number;
 
     // constructor(_size: number) {

@@ -130,6 +130,29 @@ var L09_Ententeich;
     }
     function drawDuck() {
         console.log("Ente malen");
+        crc2.save();
+        crc2.translate(100, 300);
+        // Set stroke and fill styles to white
+        crc2.strokeStyle = "lightblue";
+        crc2.fillStyle = "lightblue";
+        crc2.beginPath();
+        crc2.moveTo(15, 5);
+        crc2.lineTo(35, 5);
+        crc2.lineTo(35, 25);
+        crc2.lineTo(45, 35);
+        crc2.lineTo(55, 35);
+        crc2.lineTo(65, 25);
+        crc2.lineTo(65, 45);
+        crc2.lineTo(55, 55);
+        crc2.lineTo(25, 55);
+        crc2.lineTo(15, 35);
+        crc2.lineTo(15, 25);
+        crc2.lineTo(5, 20);
+        crc2.lineTo(15, 15);
+        crc2.lineTo(15, 5);
+        crc2.stroke();
+        crc2.fill(); // Fill the inside of the duck with white
+        crc2.restore();
     }
 })(L09_Ententeich || (L09_Ententeich = {}));
 //# sourceMappingURL=Main.js.map

@@ -1,6 +1,6 @@
 namespace L09_Ententeich {
   export class Duck {
-    position: Vector;
+    // position: Vector;
     direction: boolean;
     type: number;
     color: string;
