@@ -193,7 +193,7 @@ namespace L09_Ententeich {
     crc2.lineTo(15, 15);
     crc2.lineTo(15, 5);
     crc2.stroke();
-    crc2.fill(); // Fill the inside of the duck with white
+    crc2.fill();
 
     crc2.restore();
 }
