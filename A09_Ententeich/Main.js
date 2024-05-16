@@ -17,13 +17,11 @@ var L09_Ententeich;
         let horizon = L09_Ententeich.crc2.canvas.height * line;
         drawBackground();
         drawSun({ x: 100, y: 75 });
-        // drawCloud({ x: 500, y: 125 }, { x: 250, y: 75 });
         drawMountains({ x: 0, y: horizon }, 75, 200, "rgb(193, 12, 139)", "white");
         drawMountains({ x: 0, y: horizon }, 50, 150, "rgb(149, 20, 154)", "rgb(255, 236, 255)");
-        drawPond();
-        // drawTree();
+        drawLake();
+        drawTree({ x: 60, y: 470 });
         // drawTreeBlossom();
-        // drawLake();
         // drawReed();
         // drawHouse();
         // drawBlossom();
@@ -46,7 +44,6 @@ var L09_Ententeich;
         }, 24);
     }
     function drawBackground() {
-        console.log("Background");
         let gradient = L09_Ententeich.crc2.createLinearGradient(0, 0, 0, L09_Ententeich.crc2.canvas.height);
         gradient.addColorStop(0, "purple");
         gradient.addColorStop(0.3, "rgb(215, 27, 222)");
@@ -56,7 +53,6 @@ var L09_Ententeich;
         L09_Ententeich.crc2.fillRect(0, 0, L09_Ententeich.crc2.canvas.width, L09_Ententeich.crc2.canvas.height);
     }
     function drawSun(_position) {
-        console.log("Sun", _position);
         let r1 = 50;
         let r2 = 150;
         let gradient = L09_Ententeich.crc2.createRadialGradient(0, 0, r1, 0, 0, r2);
@@ -93,7 +89,7 @@ var L09_Ententeich;
         L09_Ententeich.crc2.fill();
         L09_Ententeich.crc2.restore();
     }
-    function drawPond() {
+    function drawLake() {
         let centerX = 920;
         let centerY = 430;
         let radiusX = 500;
@@ -106,9 +102,19 @@ var L09_Ententeich;
         L09_Ententeich.crc2.fill();
         L09_Ententeich.crc2.restore();
     }
-    // function drawTree() {
-    //   console.log("Baum malen")
-    // }
+    function drawTree(_position) {
+        L09_Ententeich.crc2.save();
+        L09_Ententeich.crc2.translate(_position.x, _position.y);
+        L09_Ententeich.crc2.fillStyle = "brown";
+        L09_Ententeich.crc2.fillRect(90, 10, 60, -100);
+        L09_Ententeich.crc2.save();
+        L09_Ententeich.crc2.fillStyle = "pink";
+        L09_Ententeich.crc2.beginPath();
+        L09_Ententeich.crc2.arc(120, -220, 160, 0, 2 * Math.PI);
+        L09_Ententeich.crc2.fill();
+        L09_Ententeich.crc2.restore();
+        L09_Ententeich.crc2.restore();
+    }
     // function drawTreeBlossom() {
     //   console.log("Baumblüten malen")
     // }

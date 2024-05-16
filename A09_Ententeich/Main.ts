@@ -28,13 +28,11 @@ namespace L09_Ententeich {
 
     drawBackground();
     drawSun({ x: 100, y: 75 });
-    // drawCloud({ x: 500, y: 125 }, { x: 250, y: 75 });
     drawMountains({ x: 0, y: horizon }, 75, 200, "rgb(193, 12, 139)", "white");
     drawMountains({ x: 0, y: horizon }, 50, 150, "rgb(149, 20, 154)", "rgb(255, 236, 255)");
-    drawPond();
-    // drawTree();
+    drawLake();
+    drawTree({ x: 60, y: 470 });
     // drawTreeBlossom();
-    // drawLake();
     // drawReed();
     // drawHouse();
     // drawBlossom();
@@ -65,7 +63,6 @@ namespace L09_Ententeich {
   }
 
   function drawBackground(): void {
-    console.log("Background");
 
     let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
     gradient.addColorStop(0, "purple");
@@ -79,7 +76,6 @@ namespace L09_Ententeich {
   }
 
   function drawSun(_position: Vector): void {
-    console.log("Sun", _position);
 
     let r1: number = 50;
     let r2: number = 150;
@@ -130,7 +126,7 @@ namespace L09_Ententeich {
     crc2.restore();
   }
 
-  function drawPond(): void {
+  function drawLake(): void {
 
     let centerX = 920;
     let centerY = 430;
@@ -144,12 +140,23 @@ namespace L09_Ententeich {
     crc2.fillStyle = "rgb(95, 31, 192)";
     crc2.fill();
     crc2.restore();
-}
+  }
 
-
-  // function drawTree() {
-  //   console.log("Baum malen")
-  // }
+  function drawTree(_position: Vector): void {
+    crc2.save();
+    crc2.translate(_position.x, _position.y);
+    crc2.fillStyle = "brown";
+    crc2.fillRect(90, 10, 60, -100);
+  
+    crc2.save();
+    crc2.fillStyle = "pink";
+    crc2.beginPath();
+    crc2.arc(120, -220, 160, 0, 2 * Math.PI);
+    crc2.fill();
+    crc2.restore();
+  
+    crc2.restore();
+  }
 
   // function drawTreeBlossom() {
   //   console.log("Baumblüten malen")
