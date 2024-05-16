@@ -4,6 +4,8 @@ var L09_Ententeich;
     window.addEventListener("load", handleLoad);
     let line = 0.46;
     let ducks = [];
+    let insects = [];
+    let clouds = [];
     let imgData;
     function handleLoad(_event) {
         let canvas = document.querySelector("canvas");
@@ -15,10 +17,10 @@ var L09_Ententeich;
         let horizon = L09_Ententeich.crc2.canvas.height * line;
         drawBackground();
         drawSun({ x: 100, y: 75 });
-        drawCloud({ x: 500, y: 125 }, { x: 250, y: 75 });
-        // drawStreet({ x: crc2.canvas.width / 2, y: horizon }, 100, 600);
+        // drawCloud({ x: 500, y: 125 }, { x: 250, y: 75 });
         drawMountains({ x: 0, y: horizon }, 75, 200, "rgb(193, 12, 139)", "white");
         drawMountains({ x: 0, y: horizon }, 50, 150, "rgb(149, 20, 154)", "rgb(255, 236, 255)");
+        drawPond();
         drawTree();
         drawTreeBlossom();
         drawLake();
@@ -26,10 +28,19 @@ var L09_Ententeich;
         drawHouse();
         drawBlossom();
         imgData = L09_Ententeich.crc2.getImageData(0, 0, L09_Ententeich.crc2.canvas.width, L09_Ententeich.crc2.canvas.height);
-        // drawDuck();
         new L09_Ententeich.Duck(100, 100, "lightblue");
         ducks.push(new L09_Ententeich.Duck(1000, 420, "yellow"));
         ducks.push(new L09_Ententeich.Duck(1200, 320, "lightblue"));
+        new L09_Ententeich.Insect(100, 100, "purple");
+        insects.push(new L09_Ententeich.Insect(1000, 100, "purple"));
+        insects.push(new L09_Ententeich.Insect(700, 150, "purple"));
+        insects.push(new L09_Ententeich.Insect(600, 80, "purple"));
+        insects.push(new L09_Ententeich.Insect(500, 200, "purple"));
+        insects.push(new L09_Ententeich.Insect(200, 150, "purple"));
+        new L09_Ententeich.Cloud(10, 100, "white");
+        clouds.push(new L09_Ententeich.Cloud(10, 80, "white"));
+        clouds.push(new L09_Ententeich.Cloud(300, 100, "white"));
+        clouds.push(new L09_Ententeich.Cloud(600, 80, "white"));
         window.setInterval(function () {
             animation();
         }, 24);
@@ -58,28 +69,6 @@ var L09_Ententeich;
         L09_Ententeich.crc2.fill();
         L09_Ententeich.crc2.restore();
     }
-    function drawCloud(_position, _size) {
-        console.log("Cloud", _position, _size);
-        let nParticles = 20;
-        let radiusParticle = 50;
-        let particle = new Path2D();
-        let gradient = L09_Ententeich.crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
-        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
-        gradient.addColorStop(0, "rgba(240, 227, 240, 0.5)");
-        gradient.addColorStop(1, "rgba(240, 227, 240, 0)");
-        L09_Ententeich.crc2.save();
-        L09_Ententeich.crc2.translate(_position.x, _position.y);
-        L09_Ententeich.crc2.fillStyle = gradient;
-        for (let drawn = 0; drawn < nParticles; drawn++) {
-            L09_Ententeich.crc2.save();
-            let x = (Math.random() - 0.5) * _size.x;
-            let y = -(Math.random() * _size.y);
-            L09_Ententeich.crc2.translate(x, y);
-            L09_Ententeich.crc2.fill(particle);
-            L09_Ententeich.crc2.restore();
-        }
-        L09_Ententeich.crc2.restore();
-    }
     function drawMountains(_position, _min, _max, _colorLow, _colorHigh) {
         console.log("Mountains");
         let stepMin = 50;
@@ -104,6 +93,19 @@ var L09_Ententeich;
         L09_Ententeich.crc2.fill();
         L09_Ententeich.crc2.restore();
     }
+    function drawPond() {
+        let centerX = 920;
+        let centerY = 430;
+        let radiusX = 500;
+        let radiusY = 120;
+        L09_Ententeich.crc2.save();
+        L09_Ententeich.crc2.beginPath();
+        L09_Ententeich.crc2.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, 2 * Math.PI);
+        L09_Ententeich.crc2.closePath();
+        L09_Ententeich.crc2.fillStyle = "blue";
+        L09_Ententeich.crc2.fill();
+        L09_Ententeich.crc2.restore();
+    }
     function drawTree() {
         console.log("Baum malen");
     }
@@ -122,37 +124,17 @@ var L09_Ententeich;
     function drawBlossom() {
         console.log("Blumen malen");
     }
-    // function drawDuck() {
-    //   console.log("Ente malen");
-    //   crc2.save();
-    //   crc2.translate(100, 300);
-    //   // Set stroke and fill styles to white
-    //   crc2.strokeStyle = "lightblue";
-    //   crc2.fillStyle = "lightblue";
-    //   crc2.beginPath();
-    //   crc2.moveTo(15, 5);
-    //   crc2.lineTo(35, 5);
-    //   crc2.lineTo(35, 25);
-    //   crc2.lineTo(45, 35);
-    //   crc2.lineTo(55, 35);
-    //   crc2.lineTo(65, 25);
-    //   crc2.lineTo(65, 45);
-    //   crc2.lineTo(55, 55);
-    //   crc2.lineTo(25, 55);
-    //   crc2.lineTo(15, 35);
-    //   crc2.lineTo(15, 25);
-    //   crc2.lineTo(5, 20);
-    //   crc2.lineTo(15, 15);
-    //   crc2.lineTo(15, 5);
-    //   crc2.stroke();
-    //   crc2.fill();
-    //   crc2.restore();
-    // }
     function animation() {
         drawBackground();
         L09_Ententeich.crc2.putImageData(imgData, 0, 0);
         for (let duck of ducks) {
             duck.move();
+        }
+        for (let insect of insects) {
+            insect.move();
+        }
+        for (let cloud of clouds) {
+            cloud.move();
         }
     }
 })(L09_Ententeich || (L09_Ententeich = {}));
