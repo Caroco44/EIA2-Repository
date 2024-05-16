@@ -32,12 +32,12 @@ namespace L09_Ententeich {
     drawMountains({ x: 0, y: horizon }, 75, 200, "rgb(193, 12, 139)", "white");
     drawMountains({ x: 0, y: horizon }, 50, 150, "rgb(149, 20, 154)", "rgb(255, 236, 255)");
     drawPond();
-    drawTree();
-    drawTreeBlossom();
-    drawLake();
-    drawReed();
-    drawHouse();
-    drawBlossom();
+    // drawTree();
+    // drawTreeBlossom();
+    // drawLake();
+    // drawReed();
+    // drawHouse();
+    // drawBlossom();
     imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
 
     new Duck(100, 100, "lightblue");
@@ -141,35 +141,35 @@ namespace L09_Ententeich {
     crc2.beginPath();
     crc2.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, 2 * Math.PI);
     crc2.closePath();
-    crc2.fillStyle = "blue";
+    crc2.fillStyle = "rgb(95, 31, 192)";
     crc2.fill();
     crc2.restore();
 }
 
 
-  function drawTree() {
-    console.log("Baum malen")
-  }
+  // function drawTree() {
+  //   console.log("Baum malen")
+  // }
 
-  function drawTreeBlossom() {
-    console.log("Baumblüten malen")
-  }
+  // function drawTreeBlossom() {
+  //   console.log("Baumblüten malen")
+  // }
 
-  function drawLake() {
-    console.log("Baumblüten malen")
-  }
+  // function drawLake() {
+  //   console.log("Baumblüten malen")
+  // }
 
-  function drawReed() {
-    console.log("Schilfrohr malen")
-  }
+  // function drawReed() {
+  //   console.log("Schilfrohr malen")
+  // }
 
-  function drawHouse() {
-    console.log("Haus malen")
-  }
+  // function drawHouse() {
+  //   console.log("Haus malen")
+  // }
 
-  function drawBlossom() {
-    console.log("Blumen malen")
-  }
+  // function drawBlossom() {
+  //   console.log("Blumen malen")
+  // }
 
   function animation(): void {
     drawBackground();

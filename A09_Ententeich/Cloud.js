@@ -13,7 +13,7 @@ var L09_Ententeich;
         }
         move() {
             //this.positionX += 2
-            this.positionX = this.positionX + 1;
+            this.positionX = this.positionX + 0.5;
             const screenWidth = window.innerWidth;
             const screenHeight = window.innerHeight;
             if (this.positionX < 0)
@@ -30,11 +30,11 @@ var L09_Ententeich;
             L09_Ententeich.crc2.save();
             L09_Ententeich.crc2.translate(this.positionX, this.positionY);
             L09_Ententeich.crc2.beginPath();
-            L09_Ententeich.crc2.moveTo(150, 0);
+            L09_Ententeich.crc2.moveTo(75, 0);
             L09_Ententeich.crc2.lineTo(0, 0);
-            L09_Ententeich.crc2.ellipse(50, 0, 40, 30, 0, Math.PI, 0, false);
-            L09_Ententeich.crc2.ellipse(100, 0, 60, 60, 0, Math.PI, 0, false);
-            L09_Ententeich.crc2.ellipse(170, 0, 50, 30, 0, Math.PI, 0, false);
+            L09_Ententeich.crc2.ellipse(10, 0, 40, 35, 0, Math.PI, 0, false);
+            L09_Ententeich.crc2.ellipse(40, 0, 45, 50, 0, Math.PI, 0, false);
+            L09_Ententeich.crc2.ellipse(100, 0, 40, 35, 0, Math.PI, 0, false);
             L09_Ententeich.crc2.closePath();
             L09_Ententeich.crc2.fillStyle = this.color;
             L09_Ententeich.crc2.fill();
