@@ -1,45 +1,38 @@
 namespace L09_Ententeich {
   export class Duck {
-    // position: Vector;
-    direction: boolean;
-    type: number;
+    positionX: number;
+    positionY: number;
     color: string;
-    size: number;
 
-    // constructor(_size: number) {
-    //   console.log("Asteroid constructor");
-    //   this.position = new Vector(0, 0);
-    //   this.velocity = new Vector(0, 0);
-    //   this.velocity.random(100, 200);
+    constructor(_positionX: number, _positionY: number, _color: string) {
+      this.positionX = _positionX;
+      this.positionY = _positionY;
+      this.color = _color;
 
-    //   this.type = Math.floor(Math.random() * 4);
-    //   this.size = _size;
-    // }
+      this.draw();
+    }
 
-    // move(_timeslice: number): void {
-    //   console.log("Asteroid move");
-    //   let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
-    //   offset.scale(_timeslice);
-    //   this.position.add(offset);
+    move(): void {
+      //this.positionX += 2
+      this.positionX = this.positionX - 2;
 
-    //   if (this.position.x < 0)
-    //     this.position.x += crc2.canvas.width;
-    //   if (this.position.y < 0)
-    //     this.position.y += crc2.canvas.height;
-    //   if (this.position.x > crc2.canvas.width)
-    //     this.position.x -= crc2.canvas.width;
-    //   if (this.position.y > crc2.canvas.height)
-    //     this.position.y -= crc2.canvas.height;
-    // }
+      this.draw();
+    }
 
-    // draw(): void {
-    //   console.log("Asteroid draw");
-    //   crc2.save();
-    //   crc2.translate(this.position.x, this.position.y);
-    //   crc2.scale(this.size, this.size);
-    //   crc2.translate(-50, -50);
-    //   crc2.stroke(asteroidPaths[this.type]);
-    //   crc2.restore();
-    // }
+    draw(): void {
+      crc2.save();
+      crc2.beginPath();
+      crc2.translate(this.positionX, this.positionY);
+
+      crc2.fillStyle = this.color;
+      crc2.arc(10, 10, 20, 0, 2 * Math.PI)
+      crc2.fill();
+
+      crc2.ellipse(35, 35, 40, 20, 0, 0, 2 * Math.PI);
+      crc2.fill();
+
+      crc2.closePath();
+      crc2.restore();
+    }
   }
 }

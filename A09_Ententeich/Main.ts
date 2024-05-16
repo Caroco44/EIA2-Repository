@@ -5,8 +5,11 @@ namespace L09_Ententeich {
   }
 
   window.addEventListener("load", handleLoad);
-  let crc2: CanvasRenderingContext2D;
+  export let crc2: CanvasRenderingContext2D;
   let line: number = 0.46;
+
+  let ducks: Duck[] = [];
+  let imgData: ImageData;
 
   function handleLoad(_event: Event): void {
     let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
@@ -31,7 +34,17 @@ namespace L09_Ententeich {
     drawReed();
     drawHouse();
     drawBlossom();
-    drawDuck();
+    imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
+    // drawDuck();
+
+    new Duck(100, 100, "lightblue");
+
+    ducks.push(new Duck(1000, 420, "yellow"));
+    ducks.push(new Duck(1200, 320, "lightblue"));
+
+    window.setInterval(function(): void {
+      animation();
+    }, 24)
   }
 
   function drawBackground(): void {
@@ -45,6 +58,7 @@ namespace L09_Ententeich {
 
     crc2.fillStyle = gradient;
     crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+    
   }
 
   function drawSun(_position: Vector): void {
@@ -63,6 +77,7 @@ namespace L09_Ententeich {
     crc2.arc(0, 0, r2, 0, 2 * Math.PI);
     crc2.fill();
     crc2.restore();
+    
   }
 
 
@@ -92,23 +107,6 @@ namespace L09_Ententeich {
     }
     crc2.restore();
   }
-
-  // function drawStreet(_position: Vector, _widthBack: number, _widthFront: number): void {
-  //   console.log("Street");
-  //   crc2.beginPath();
-  //   crc2.moveTo(_position.x + _widthBack / 2, _position.y);
-  //   crc2.lineTo(crc2.canvas.width / 2 + _widthFront / 2, crc2.canvas.height);
-  //   crc2.lineTo(crc2.canvas.width / 2 - _widthFront / 2, crc2.canvas.height);
-  //   crc2.lineTo(_position.x - _widthBack / 2, _position.y);
-  //   crc2.closePath();
-
-  //   let gradient: CanvasGradient = crc2.createLinearGradient(0, _position.y, 0, crc2.canvas.height);
-  //   gradient.addColorStop(0, "darkgrey");
-  //   gradient.addColorStop(0.6, "black");
-
-  //   crc2.fillStyle = gradient;
-  //   crc2.fill();
-  // }
 
   function drawMountains(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
     console.log("Mountains");
@@ -168,34 +166,43 @@ namespace L09_Ententeich {
     console.log("Blumen malen")
   }
 
-  function drawDuck() {
-    console.log("Ente malen");
-    crc2.save();
-    crc2.translate(100, 300);
-  
-    // Set stroke and fill styles to white
-    crc2.strokeStyle = "lightblue";
-    crc2.fillStyle = "lightblue";
+  // function drawDuck() {
+  //   console.log("Ente malen");
+  //   crc2.save();
+  //   crc2.translate(100, 300);
 
-    crc2.beginPath();
-    crc2.moveTo(15, 5);
-    crc2.lineTo(35, 5);
-    crc2.lineTo(35, 25);
-    crc2.lineTo(45, 35);
-    crc2.lineTo(55, 35);
-    crc2.lineTo(65, 25);
-    crc2.lineTo(65, 45);
-    crc2.lineTo(55, 55);
-    crc2.lineTo(25, 55);
-    crc2.lineTo(15, 35);
-    crc2.lineTo(15, 25);
-    crc2.lineTo(5, 20);
-    crc2.lineTo(15, 15);
-    crc2.lineTo(15, 5);
-    crc2.stroke();
-    crc2.fill();
+  //   // Set stroke and fill styles to white
+  //   crc2.strokeStyle = "lightblue";
+  //   crc2.fillStyle = "lightblue";
 
-    crc2.restore();
-}
+  //   crc2.beginPath();
+  //   crc2.moveTo(15, 5);
+  //   crc2.lineTo(35, 5);
+  //   crc2.lineTo(35, 25);
+  //   crc2.lineTo(45, 35);
+  //   crc2.lineTo(55, 35);
+  //   crc2.lineTo(65, 25);
+  //   crc2.lineTo(65, 45);
+  //   crc2.lineTo(55, 55);
+  //   crc2.lineTo(25, 55);
+  //   crc2.lineTo(15, 35);
+  //   crc2.lineTo(15, 25);
+  //   crc2.lineTo(5, 20);
+  //   crc2.lineTo(15, 15);
+  //   crc2.lineTo(15, 5);
+  //   crc2.stroke();
+  //   crc2.fill();
+
+  //   crc2.restore();
+  // }
+
+  function animation(): void {
+    drawBackground();
+    crc2.putImageData(imgData, 0, 0);
+
+    for(let duck of ducks) {
+      duck.move();
+    }
+  }
 
 }
