@@ -1,1 +1,1 @@
-{"version":3,"file":"Crumbs.js","sourceRoot":"","sources":["Crumbs.ts"],"names":[],"mappings":";AAAA,IAAU,cAAc,CAyCvB;AAzCD,WAAU,cAAc;IACtB,MAAa,MAAM;QACjB,oBAAoB;QACpB,IAAI,CAAS;KAqCd;IAvCY,qBAAM,SAuClB,CAAA;AACH,CAAC,EAzCS,cAAc,KAAd,cAAc,QAyCvB"}
+{"version":3,"file":"Crumbs.js","sourceRoot":"","sources":["Crumbs.ts"],"names":[],"mappings":";AAAA,IAAU,cAAc,CAIvB;AAJD,WAAU,cAAc;IACtB,MAAa,MAAM;KAElB;IAFY,qBAAM,SAElB,CAAA;AACH,CAAC,EAJS,cAAc,KAAd,cAAc,QAIvB"}
