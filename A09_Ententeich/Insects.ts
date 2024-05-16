@@ -21,14 +21,6 @@ namespace L09_Ententeich {
       this.positionX += randomX;
       this.positionY += randomY;
   
-      const screenWidth = window.innerWidth;
-      const screenHeight = window.innerHeight;
-  
-      if (this.positionX < 0) this.positionX = 0;
-      if (this.positionX > screenWidth) this.positionX = screenWidth;
-      if (this.positionY < 0) this.positionY = 0;
-      if (this.positionY > screenHeight) this.positionY = screenHeight;
-  
       this.draw();
     }
 

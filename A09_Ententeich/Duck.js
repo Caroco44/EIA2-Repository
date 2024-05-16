@@ -12,7 +12,7 @@ var L09_Ententeich;
             this.draw();
         }
         move() {
-            //this.positionX += 2
+            //this.positionX -= 2
             this.positionX = this.positionX - 2;
             if (this.positionX < 580)
                 this.positionX = 580;

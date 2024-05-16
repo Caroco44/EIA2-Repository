@@ -13,16 +13,12 @@ namespace L09_Ententeich {
     }
 
     move(): void {
-      //this.positionX += 2
       this.positionX = this.positionX + 0.5;
 
       const screenWidth = window.innerWidth;
-      const screenHeight = window.innerHeight;
 
       if (this.positionX < 0) this.positionX = 0;
       if (this.positionX > screenWidth) this.positionX = screenWidth;
-      if (this.positionY < 0) this.positionY = 0;
-      if (this.positionY > screenHeight) this.positionY = screenHeight;
 
       this.draw();
     }
