@@ -32,10 +32,7 @@ namespace L09_Ententeich {
     drawMountains({ x: 0, y: horizon }, 50, 150, "rgb(149, 20, 154)", "rgb(255, 236, 255)");
     drawLake();
     drawTree({ x: 60, y: 470 });
-    // drawTreeBlossom();
-    // drawReed();
-    // drawHouse();
-    // drawBlossom();
+   
     imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
 
     new Duck(100, 100, "lightblue");

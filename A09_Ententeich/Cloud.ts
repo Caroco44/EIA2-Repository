@@ -35,6 +35,3 @@ namespace L09_Ententeich {
   }
 }
 
-// function drawCloud(_position: Vector, _size: Vector): void {
-//   console.log("Cloud", _position, _size);
-
