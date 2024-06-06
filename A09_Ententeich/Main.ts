@@ -8,10 +8,10 @@ namespace L09_Ententeich {
   export let crc2: CanvasRenderingContext2D;
   let line: number = 0.46;
 
-  let ducks: Duck[] = [];
-  let insects: Insect[] = [];
-  let clouds: Cloud[] = [];
   let imgData: ImageData;
+  
+  let moveables: Moveable[] = [];
+  
 
 
 
@@ -40,22 +40,22 @@ namespace L09_Ententeich {
 
     new Duck(100, 100, "lightblue");
 
-    ducks.push(new Duck(1000, 420, "yellow"));
-    ducks.push(new Duck(1200, 320, "lightblue"));
+    moveables.push(new Duck(1000, 420, "yellow"));
+    moveables.push(new Duck(1200, 320, "lightblue"));
 
     new Insect(100, 100, "purple");
 
-    insects.push(new Insect(1000, 100, "purple"));
-    insects.push(new Insect(700, 150, "purple"));
-    insects.push(new Insect(600, 80, "purple"));
-    insects.push(new Insect(500, 200, "purple"));
-    insects.push(new Insect(200, 150, "purple"));
+    moveables.push(new Insect(1000, 100, "purple"));
+    moveables.push(new Insect(700, 150, "purple"));
+    moveables.push(new Insect(600, 80, "purple"));
+    moveables.push(new Insect(500, 200, "purple"));
+    moveables.push(new Insect(200, 150, "purple"));
 
     new Cloud(10, 100, "white");
 
-    clouds.push(new Cloud(10, 80, "white"));
-    clouds.push(new Cloud(300, 100, "white"));
-    clouds.push(new Cloud(600, 80, "white"));
+    moveables.push(new Cloud(10, 80, "white"));
+    moveables.push(new Cloud(300, 100, "white"));
+    moveables.push(new Cloud(600, 80, "white"));
 
     window.setInterval(function (): void {
       animation();
@@ -182,17 +182,10 @@ namespace L09_Ententeich {
     drawBackground();
     crc2.putImageData(imgData, 0, 0);
 
-    for (let duck of ducks) {
-      duck.move();
-    }
-
-    for (let insect of insects) {
-      insect.move();
-    }
-
-    for (let cloud of clouds) {
-      cloud.move();
+    for (let moveable of moveables) {
+      moveable.move();
     }
   }
+
 
 }

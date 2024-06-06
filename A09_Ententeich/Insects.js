@@ -1,15 +1,9 @@
 "use strict";
 var L09_Ententeich;
 (function (L09_Ententeich) {
-    class Insect {
-        positionX;
-        positionY;
-        color;
+    class Insect extends L09_Ententeich.Moveable {
         constructor(_positionX, _positionY, _color) {
-            this.positionX = _positionX;
-            this.positionY = _positionY;
-            this.color = _color;
-            this.draw();
+            super(_positionX, _positionY, _color);
         }
         move() {
             const movementRange = 2;

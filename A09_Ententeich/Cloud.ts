@@ -1,15 +1,8 @@
 namespace L09_Ententeich {
-  export class Cloud {
-    positionX: number;
-    positionY: number;
-    color: string;
+  export class Cloud extends Moveable {
 
     constructor(_positionX: number, _positionY: number, _color: string) {
-      this.positionX = _positionX;
-      this.positionY = _positionY;
-      this.color = _color;
-
-      this.draw();
+      super(_positionX, _positionY, _color)
     }
 
     move(): void {

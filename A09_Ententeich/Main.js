@@ -3,10 +3,8 @@ var L09_Ententeich;
 (function (L09_Ententeich) {
     window.addEventListener("load", handleLoad);
     let line = 0.46;
-    let ducks = [];
-    let insects = [];
-    let clouds = [];
     let imgData;
+    let moveables = [];
     function handleLoad(_event) {
         let canvas = document.querySelector("canvas");
         if (!canvas)
@@ -27,18 +25,18 @@ var L09_Ententeich;
         // drawBlossom();
         imgData = L09_Ententeich.crc2.getImageData(0, 0, L09_Ententeich.crc2.canvas.width, L09_Ententeich.crc2.canvas.height);
         new L09_Ententeich.Duck(100, 100, "lightblue");
-        ducks.push(new L09_Ententeich.Duck(1000, 420, "yellow"));
-        ducks.push(new L09_Ententeich.Duck(1200, 320, "lightblue"));
+        moveables.push(new L09_Ententeich.Duck(1000, 420, "yellow"));
+        moveables.push(new L09_Ententeich.Duck(1200, 320, "lightblue"));
         new L09_Ententeich.Insect(100, 100, "purple");
-        insects.push(new L09_Ententeich.Insect(1000, 100, "purple"));
-        insects.push(new L09_Ententeich.Insect(700, 150, "purple"));
-        insects.push(new L09_Ententeich.Insect(600, 80, "purple"));
-        insects.push(new L09_Ententeich.Insect(500, 200, "purple"));
-        insects.push(new L09_Ententeich.Insect(200, 150, "purple"));
+        moveables.push(new L09_Ententeich.Insect(1000, 100, "purple"));
+        moveables.push(new L09_Ententeich.Insect(700, 150, "purple"));
+        moveables.push(new L09_Ententeich.Insect(600, 80, "purple"));
+        moveables.push(new L09_Ententeich.Insect(500, 200, "purple"));
+        moveables.push(new L09_Ententeich.Insect(200, 150, "purple"));
         new L09_Ententeich.Cloud(10, 100, "white");
-        clouds.push(new L09_Ententeich.Cloud(10, 80, "white"));
-        clouds.push(new L09_Ententeich.Cloud(300, 100, "white"));
-        clouds.push(new L09_Ententeich.Cloud(600, 80, "white"));
+        moveables.push(new L09_Ententeich.Cloud(10, 80, "white"));
+        moveables.push(new L09_Ententeich.Cloud(300, 100, "white"));
+        moveables.push(new L09_Ententeich.Cloud(600, 80, "white"));
         window.setInterval(function () {
             animation();
         }, 24);
@@ -133,14 +131,8 @@ var L09_Ententeich;
     function animation() {
         drawBackground();
         L09_Ententeich.crc2.putImageData(imgData, 0, 0);
-        for (let duck of ducks) {
-            duck.move();
-        }
-        for (let insect of insects) {
-            insect.move();
-        }
-        for (let cloud of clouds) {
-            cloud.move();
+        for (let moveable of moveables) {
+            moveable.move();
         }
     }
 })(L09_Ententeich || (L09_Ententeich = {}));
