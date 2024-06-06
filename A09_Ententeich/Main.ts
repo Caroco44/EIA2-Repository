@@ -59,6 +59,8 @@ namespace L09_Ententeich {
     }, 24)
   }
 
+
+  // Draw Background
   function drawBackground(): void {
 
     let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
@@ -72,6 +74,7 @@ namespace L09_Ententeich {
 
   }
 
+  // Draw Sun
   function drawSun(_position: Vector): void {
 
     let r1: number = 50;
@@ -89,7 +92,7 @@ namespace L09_Ententeich {
     crc2.restore();
   }
 
-
+// Draw Mountains
   function drawMountains(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
     console.log("Mountains");
     let stepMin: number = 50;
@@ -123,6 +126,7 @@ namespace L09_Ententeich {
     crc2.restore();
   }
 
+// Draw Lake
   function drawLake(): void {
 
     let centerX = 920;
@@ -139,6 +143,7 @@ namespace L09_Ententeich {
     crc2.restore();
   }
 
+  // Draw Tree
   function drawTree(_position: Vector): void {
     crc2.save();
     crc2.translate(_position.x, _position.y);
@@ -155,26 +160,7 @@ namespace L09_Ententeich {
     crc2.restore();
   }
 
-  // function drawTreeBlossom() {
-  //   console.log("Baumblüten malen")
-  // }
-
-  // function drawLake() {
-  //   console.log("Baumblüten malen")
-  // }
-
-  // function drawReed() {
-  //   console.log("Schilfrohr malen")
-  // }
-
-  // function drawHouse() {
-  //   console.log("Haus malen")
-  // }
-
-  // function drawBlossom() {
-  //   console.log("Blumen malen")
-  // }
-
+  // Animate the Moveables
   function animation(): void {
     drawBackground();
     crc2.putImageData(imgData, 0, 0);
