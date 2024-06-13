@@ -9,9 +9,9 @@ namespace L09_Ententeich {
   let line: number = 0.46;
 
   let imgData: ImageData;
-  
+
   let moveables: Moveable[] = [];
-  
+
 
 
 
@@ -32,15 +32,11 @@ namespace L09_Ententeich {
     drawMountains({ x: 0, y: horizon }, 50, 150, "rgb(149, 20, 154)", "rgb(255, 236, 255)");
     drawLake();
     drawTree({ x: 60, y: 470 });
-   
-    imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
 
-    new Duck(100, 100, "lightblue");
+    imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
 
     moveables.push(new Duck(1000, 420, "yellow"));
     moveables.push(new Duck(1200, 320, "lightblue"));
-
-    new Insect(100, 100, "purple");
 
     moveables.push(new Insect(1000, 100, "purple"));
     moveables.push(new Insect(700, 150, "purple"));
@@ -48,17 +44,31 @@ namespace L09_Ententeich {
     moveables.push(new Insect(500, 200, "purple"));
     moveables.push(new Insect(200, 150, "purple"));
 
-    new Cloud(10, 100, "white");
-
     moveables.push(new Cloud(10, 80, "white"));
     moveables.push(new Cloud(300, 100, "white"));
     moveables.push(new Cloud(600, 80, "white"));
+
+
+    canvas.addEventListener("pointerdown", createBabyDuck);
 
     window.setInterval(function (): void {
       animation();
     }, 24)
   }
 
+
+  function createBabyDuck(_event: PointerEvent) {
+    for (let moveable of moveables) {
+      if(moveable instanceof Duck) {
+        let clickX: number = _event.clientX;
+        let clickY: number = _event.clientY;
+
+        if(moveable.positionX < clickX && clickX < moveable.positionX + 100 && moveable.positionY < clickY && clickY < moveable.positionY + 100) {
+          moveables.push(new BabyDuck(clickX, clickY + 40, "pink"));
+        }
+      }
+    }
+  }
 
   // Draw Background
   function drawBackground(): void {
@@ -92,7 +102,7 @@ namespace L09_Ententeich {
     crc2.restore();
   }
 
-// Draw Mountains
+  // Draw Mountains
   function drawMountains(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
     console.log("Mountains");
     let stepMin: number = 50;
@@ -126,7 +136,7 @@ namespace L09_Ententeich {
     crc2.restore();
   }
 
-// Draw Lake
+  // Draw Lake
   function drawLake(): void {
 
     let centerX = 920;
@@ -149,14 +159,14 @@ namespace L09_Ententeich {
     crc2.translate(_position.x, _position.y);
     crc2.fillStyle = "brown";
     crc2.fillRect(90, 10, 60, -100);
-  
+
     crc2.save();
     crc2.fillStyle = "pink";
     crc2.beginPath();
     crc2.arc(120, -220, 160, 0, 2 * Math.PI);
     crc2.fill();
     crc2.restore();
-  
+
     crc2.restore();
   }
 

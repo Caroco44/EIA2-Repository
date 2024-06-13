@@ -20,23 +20,33 @@ var L09_Ententeich;
         drawLake();
         drawTree({ x: 60, y: 470 });
         imgData = L09_Ententeich.crc2.getImageData(0, 0, L09_Ententeich.crc2.canvas.width, L09_Ententeich.crc2.canvas.height);
-        new L09_Ententeich.Duck(100, 100, "lightblue");
         moveables.push(new L09_Ententeich.Duck(1000, 420, "yellow"));
         moveables.push(new L09_Ententeich.Duck(1200, 320, "lightblue"));
-        new L09_Ententeich.Insect(100, 100, "purple");
         moveables.push(new L09_Ententeich.Insect(1000, 100, "purple"));
         moveables.push(new L09_Ententeich.Insect(700, 150, "purple"));
         moveables.push(new L09_Ententeich.Insect(600, 80, "purple"));
         moveables.push(new L09_Ententeich.Insect(500, 200, "purple"));
         moveables.push(new L09_Ententeich.Insect(200, 150, "purple"));
-        new L09_Ententeich.Cloud(10, 100, "white");
         moveables.push(new L09_Ententeich.Cloud(10, 80, "white"));
         moveables.push(new L09_Ententeich.Cloud(300, 100, "white"));
         moveables.push(new L09_Ententeich.Cloud(600, 80, "white"));
+        canvas.addEventListener("pointerdown", createBabyDuck);
         window.setInterval(function () {
             animation();
         }, 24);
     }
+    function createBabyDuck(_event) {
+        for (let moveable of moveables) {
+            if (moveable instanceof L09_Ententeich.Duck) {
+                let clickX = _event.clientX;
+                let clickY = _event.clientY;
+                if (moveable.positionX < clickX && clickX < moveable.positionX + 100 && moveable.positionY < clickY && clickY < moveable.positionY + 100) {
+                    moveables.push(new L09_Ententeich.BabyDuck(clickX, clickY + 40, "pink"));
+                }
+            }
+        }
+    }
+    // Draw Background
     function drawBackground() {
         let gradient = L09_Ententeich.crc2.createLinearGradient(0, 0, 0, L09_Ententeich.crc2.canvas.height);
         gradient.addColorStop(0, "purple");
@@ -46,6 +56,7 @@ var L09_Ententeich;
         L09_Ententeich.crc2.fillStyle = gradient;
         L09_Ententeich.crc2.fillRect(0, 0, L09_Ententeich.crc2.canvas.width, L09_Ententeich.crc2.canvas.height);
     }
+    // Draw Sun
     function drawSun(_position) {
         let r1 = 50;
         let r2 = 150;
@@ -59,6 +70,7 @@ var L09_Ententeich;
         L09_Ententeich.crc2.fill();
         L09_Ententeich.crc2.restore();
     }
+    // Draw Mountains
     function drawMountains(_position, _min, _max, _colorLow, _colorHigh) {
         console.log("Mountains");
         let stepMin = 50;
@@ -83,6 +95,7 @@ var L09_Ententeich;
         L09_Ententeich.crc2.fill();
         L09_Ententeich.crc2.restore();
     }
+    // Draw Lake
     function drawLake() {
         let centerX = 920;
         let centerY = 430;
@@ -96,6 +109,7 @@ var L09_Ententeich;
         L09_Ententeich.crc2.fill();
         L09_Ententeich.crc2.restore();
     }
+    // Draw Tree
     function drawTree(_position) {
         L09_Ententeich.crc2.save();
         L09_Ententeich.crc2.translate(_position.x, _position.y);
@@ -109,21 +123,7 @@ var L09_Ententeich;
         L09_Ententeich.crc2.restore();
         L09_Ententeich.crc2.restore();
     }
-    // function drawTreeBlossom() {
-    //   console.log("Baumblüten malen")
-    // }
-    // function drawLake() {
-    //   console.log("Baumblüten malen")
-    // }
-    // function drawReed() {
-    //   console.log("Schilfrohr malen")
-    // }
-    // function drawHouse() {
-    //   console.log("Haus malen")
-    // }
-    // function drawBlossom() {
-    //   console.log("Blumen malen")
-    // }
+    // Animate the Moveables
     function animation() {
         drawBackground();
         L09_Ententeich.crc2.putImageData(imgData, 0, 0);
