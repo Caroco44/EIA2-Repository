@@ -12,6 +12,14 @@ var L09_Ententeich;
                 this.positionX = 580;
             this.draw();
         }
+        changeColor() {
+            if (this.color == "lightblue") {
+                this.color = "red";
+            }
+            else {
+                this.color = "lightblue";
+            }
+        }
         draw() {
             L09_Ententeich.crc2.save();
             L09_Ententeich.crc2.beginPath();

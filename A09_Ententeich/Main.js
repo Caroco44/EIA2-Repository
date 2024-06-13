@@ -31,10 +31,12 @@ var L09_Ententeich;
         moveables.push(new L09_Ententeich.Cloud(300, 100, "white"));
         moveables.push(new L09_Ententeich.Cloud(600, 80, "white"));
         canvas.addEventListener("pointerdown", createBabyDuck);
+        window.addEventListener("keydown", changeColor);
         window.setInterval(function () {
             animation();
         }, 24);
     }
+    // Add Baby Duck when clicked
     function createBabyDuck(_event) {
         for (let moveable of moveables) {
             if (moveable instanceof L09_Ententeich.Duck) {
@@ -42,6 +44,16 @@ var L09_Ententeich;
                 let clickY = _event.clientY;
                 if (moveable.positionX < clickX && clickX < moveable.positionX + 100 && moveable.positionY < clickY && clickY < moveable.positionY + 100) {
                     moveables.push(new L09_Ententeich.BabyDuck(clickX, clickY + 40, "pink"));
+                }
+            }
+        }
+    }
+    // Change Color
+    function changeColor(_event) {
+        if (_event.code == "Space") {
+            for (let moveable of moveables) {
+                if (moveable instanceof L09_Ententeich.Duck || moveable instanceof L09_Ententeich.BabyDuck) {
+                    moveable.changeColor();
                 }
             }
         }

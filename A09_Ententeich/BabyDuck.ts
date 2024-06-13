@@ -14,6 +14,14 @@ namespace L09_Ententeich {
       this.draw();
     }
 
+    changeColor(): void {
+      if (this.color == "lightblue") {
+        this.color = "red"
+      } else {
+        this.color = "lightblue"
+      }
+    }
+
     draw(): void {
       crc2.save();
       crc2.beginPath();

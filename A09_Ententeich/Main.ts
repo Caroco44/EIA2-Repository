@@ -13,8 +13,6 @@ namespace L09_Ententeich {
   let moveables: Moveable[] = [];
 
 
-
-
   function handleLoad(_event: Event): void {
     let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
     if (!canvas)
@@ -50,21 +48,33 @@ namespace L09_Ententeich {
 
 
     canvas.addEventListener("pointerdown", createBabyDuck);
+    window.addEventListener("keydown", changeColor);
 
     window.setInterval(function (): void {
       animation();
     }, 24)
   }
 
-
+  // Add Baby Duck when clicked
   function createBabyDuck(_event: PointerEvent) {
     for (let moveable of moveables) {
-      if(moveable instanceof Duck) {
+      if (moveable instanceof Duck) {
         let clickX: number = _event.clientX;
         let clickY: number = _event.clientY;
 
-        if(moveable.positionX < clickX && clickX < moveable.positionX + 100 && moveable.positionY < clickY && clickY < moveable.positionY + 100) {
+        if (moveable.positionX < clickX && clickX < moveable.positionX + 100 && moveable.positionY < clickY && clickY < moveable.positionY + 100) {
           moveables.push(new BabyDuck(clickX, clickY + 40, "pink"));
+        }
+      }
+    }
+  }
+
+  // Change Color
+  function changeColor(_event: KeyboardEvent) {
+    if (_event.code == "Space") {
+      for (let moveable of moveables) {
+        if (moveable instanceof Duck || moveable instanceof BabyDuck) {
+          moveable.changeColor()
         }
       }
     }

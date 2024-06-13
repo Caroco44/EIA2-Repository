@@ -1,10 +1,10 @@
 namespace L09_Ententeich {
 
-export class Moveable {
+export abstract class Moveable {
 
-  positionX: number;
-  positionY: number;
-  color: string;
+  public positionX: number;
+  public positionY: number;
+  protected color: string;
 
   constructor(_positionX: number, _positionY: number, _color: string) {
     this.positionX = _positionX;
