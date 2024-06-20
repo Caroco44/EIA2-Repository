@@ -67,8 +67,6 @@ namespace L09_Ententeich {
     let clickY: number = _event.clientY;
     for (let moveable of moveables) {
       if (moveable instanceof Duck) {
-
-
         if (moveable.positionX < clickX && clickX < moveable.positionX + 100 && moveable.positionY < clickY && clickY < moveable.positionY + 100) {
           moveables.push(new BabyDuck(clickX, clickY + 40, "pink"));
           isDuckClicked = true;

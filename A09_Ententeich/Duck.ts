@@ -1,6 +1,6 @@
 namespace L09_Ententeich {
   export class Duck extends Moveable {
-    state: string;
+    public state: string;
 
     constructor(_positionX: number, _positionY: number, _color: string) {
       super(_positionX, _positionY, _color)
