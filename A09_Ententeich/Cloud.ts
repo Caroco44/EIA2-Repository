@@ -5,7 +5,7 @@ namespace L09_Ententeich {
       super(_positionX, _positionY, _color)
     }
 
-    move(): void {
+    public move(): void {
       this.positionX = this.positionX + 0.5;
 
       const screenWidth = window.innerWidth;
@@ -16,7 +16,7 @@ namespace L09_Ententeich {
       this.draw();
     }
 
-    draw(): void {
+    public draw(): void {
       crc2.save();
       crc2.translate(this.positionX, this.positionY);
       

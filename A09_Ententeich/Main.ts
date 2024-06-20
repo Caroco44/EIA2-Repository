@@ -10,7 +10,12 @@ namespace L09_Ententeich {
 
   let imgData: ImageData;
 
+
+  // Array der Moveables
   let moveables: Moveable[] = [];
+
+  // Array des Essens
+  let food: Bread[] = [];
 
 
   function handleLoad(_event: Event): void {
@@ -47,7 +52,7 @@ namespace L09_Ententeich {
     moveables.push(new Cloud(600, 80, "white"));
 
 
-    canvas.addEventListener("pointerdown", createBabyDuck);
+    canvas.addEventListener("pointerdown", createObject);
     window.addEventListener("keydown", changeColor);
 
     window.setInterval(function (): void {
@@ -55,15 +60,26 @@ namespace L09_Ententeich {
     }, 24)
   }
 
-  // Add Baby Duck when clicked
-  function createBabyDuck(_event: PointerEvent) {
+  // Add Baby Duck or Bread when clicked
+  function createObject(_event: PointerEvent) {
+    let isDuckClicked = false;
+    let clickX: number = _event.clientX;
+    let clickY: number = _event.clientY;
     for (let moveable of moveables) {
       if (moveable instanceof Duck) {
-        let clickX: number = _event.clientX;
-        let clickY: number = _event.clientY;
+
 
         if (moveable.positionX < clickX && clickX < moveable.positionX + 100 && moveable.positionY < clickY && clickY < moveable.positionY + 100) {
           moveables.push(new BabyDuck(clickX, clickY + 40, "pink"));
+          isDuckClicked = true;
+        }
+      }
+    }
+    if (isDuckClicked == false) {
+      food.push(new Bread(clickX, clickY, "brown"))
+      for (let moveable of moveables) {
+        if (moveable instanceof Duck) {
+          moveable.state = "eat";
         }
       }
     }
@@ -114,7 +130,6 @@ namespace L09_Ententeich {
 
   // Draw Mountains
   function drawMountains(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
-    console.log("Mountains");
     let stepMin: number = 50;
     let stepMax: number = 150;
     let x: number = 0;
@@ -187,6 +202,10 @@ namespace L09_Ententeich {
 
     for (let moveable of moveables) {
       moveable.move();
+    }
+
+    for (let bread of food) {
+      bread.draw();
     }
   }
 

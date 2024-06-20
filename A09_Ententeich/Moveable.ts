@@ -14,10 +14,10 @@ export abstract class Moveable {
     this.draw();
   }
 
-  move(): void {}
+  public move(): void {}
 
 
-  draw(): void {}
+  public draw(): void {}
 
 }
 

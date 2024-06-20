@@ -5,7 +5,7 @@ namespace L09_Ententeich {
       super(_positionX, _positionY, _color)
     }
 
-    move(): void {
+    public move(): void {
       //this.positionX -= 2
       this.positionX = this.positionX - 2;
   
@@ -14,7 +14,7 @@ namespace L09_Ententeich {
       this.draw();
     }
 
-    changeColor(): void {
+    public changeColor(): void {
       if (this.color == "lightblue") {
         this.color = "red"
       } else {
@@ -22,7 +22,7 @@ namespace L09_Ententeich {
       }
     }
 
-    draw(): void {
+    public draw(): void {
       crc2.save();
       crc2.beginPath();
       crc2.translate(this.positionX, this.positionY);

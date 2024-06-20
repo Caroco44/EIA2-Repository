@@ -5,7 +5,7 @@ namespace L09_Ententeich {
       super(_positionX, _positionY, _color)
     }
 
-    move() {
+    public move() {
       const movementRange = 2;
   
       let randomX = (Math.random() - 0.5) * movementRange;
@@ -17,7 +17,7 @@ namespace L09_Ententeich {
       this.draw();
     }
 
-    draw(): void {
+    public draw(): void {
       crc2.save();
       crc2.beginPath();
       crc2.translate(this.positionX, this.positionY);

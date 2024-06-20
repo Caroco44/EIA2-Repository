@@ -1,11 +1,14 @@
 namespace L09_Ententeich {
   export class Duck extends Moveable {
+    state: string;
 
     constructor(_positionX: number, _positionY: number, _color: string) {
       super(_positionX, _positionY, _color)
+      this.state = "swim";
     }
 
-    move(): void {
+    public moveSwim(): void {
+      if (this.state == "swim") {
       //this.positionX -= 2
       this.positionX = this.positionX - 2;
 
@@ -13,8 +16,19 @@ namespace L09_Ententeich {
 
       this.draw();
     }
+  }
 
-    changeColor(): void {
+    public moveEat(): void {
+      if (this.state == "eat") {
+      
+      // Ente soll sich auf Brot zubewegen
+      console.log("moveEat ausgelöst")
+
+      this.draw();
+    }
+  }
+
+    public changeColor(): void {
       if (this.color == "purple") {
         this.color = "yellow"
       } else {
@@ -22,7 +36,7 @@ namespace L09_Ententeich {
       }
     }
 
-    draw(): void {
+    public draw(): void {
       crc2.save();
       crc2.beginPath();
       crc2.translate(this.positionX, this.positionY);

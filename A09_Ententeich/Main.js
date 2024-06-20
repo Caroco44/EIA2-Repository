@@ -4,7 +4,10 @@ var L09_Ententeich;
     window.addEventListener("load", handleLoad);
     let line = 0.46;
     let imgData;
+    // Array der Moveables
     let moveables = [];
+    // Array des Essens
+    let food = [];
     function handleLoad(_event) {
         let canvas = document.querySelector("canvas");
         if (!canvas)
@@ -30,20 +33,30 @@ var L09_Ententeich;
         moveables.push(new L09_Ententeich.Cloud(10, 80, "white"));
         moveables.push(new L09_Ententeich.Cloud(300, 100, "white"));
         moveables.push(new L09_Ententeich.Cloud(600, 80, "white"));
-        canvas.addEventListener("pointerdown", createBabyDuck);
+        canvas.addEventListener("pointerdown", createObject);
         window.addEventListener("keydown", changeColor);
         window.setInterval(function () {
             animation();
         }, 24);
     }
-    // Add Baby Duck when clicked
-    function createBabyDuck(_event) {
+    // Add Baby Duck or Bread when clicked
+    function createObject(_event) {
+        let isDuckClicked = false;
+        let clickX = _event.clientX;
+        let clickY = _event.clientY;
         for (let moveable of moveables) {
             if (moveable instanceof L09_Ententeich.Duck) {
-                let clickX = _event.clientX;
-                let clickY = _event.clientY;
                 if (moveable.positionX < clickX && clickX < moveable.positionX + 100 && moveable.positionY < clickY && clickY < moveable.positionY + 100) {
                     moveables.push(new L09_Ententeich.BabyDuck(clickX, clickY + 40, "pink"));
+                    isDuckClicked = true;
+                }
+            }
+        }
+        if (isDuckClicked == false) {
+            food.push(new L09_Ententeich.Bread(clickX, clickY, "brown"));
+            for (let moveable of moveables) {
+                if (moveable instanceof L09_Ententeich.Duck) {
+                    moveable.state = "eat";
                 }
             }
         }
@@ -84,7 +97,6 @@ var L09_Ententeich;
     }
     // Draw Mountains
     function drawMountains(_position, _min, _max, _colorLow, _colorHigh) {
-        console.log("Mountains");
         let stepMin = 50;
         let stepMax = 150;
         let x = 0;
@@ -141,6 +153,9 @@ var L09_Ententeich;
         L09_Ententeich.crc2.putImageData(imgData, 0, 0);
         for (let moveable of moveables) {
             moveable.move();
+        }
+        for (let bread of food) {
+            bread.draw();
         }
     }
 })(L09_Ententeich || (L09_Ententeich = {}));

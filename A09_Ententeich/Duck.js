@@ -2,15 +2,26 @@
 var L09_Ententeich;
 (function (L09_Ententeich) {
     class Duck extends L09_Ententeich.Moveable {
+        state;
         constructor(_positionX, _positionY, _color) {
             super(_positionX, _positionY, _color);
+            this.state = "swim";
         }
-        move() {
-            //this.positionX -= 2
-            this.positionX = this.positionX - 2;
-            if (this.positionX < 580)
-                this.positionX = 580;
-            this.draw();
+        moveSwim() {
+            if (this.state == "swim") {
+                //this.positionX -= 2
+                this.positionX = this.positionX - 2;
+                if (this.positionX < 580)
+                    this.positionX = 580;
+                this.draw();
+            }
+        }
+        moveEat() {
+            if (this.state == "eat") {
+                // Ente soll sich auf Brot zubewegen
+                console.log("moveEat ausgelöst");
+                this.draw();
+            }
         }
         changeColor() {
             if (this.color == "purple") {
